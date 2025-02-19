@@ -15,11 +15,11 @@ Please use `pip install -r requirements.txt` to install dependies. Ensure you ha
 
 ## Dataset
 
-The instruction-tuning dataset $\mathtt{MuMOInstruct}$ is available on [HuggingFace](). 
+The instruction-tuning dataset $\mathtt{MuMOInstruct}$ is available on [HuggingFace](https://huggingface.co/collections/NingLab/gellmo-67b527a2d221f06d09a240ef). 
 
 ## Models
 
-The instruction-tuned model checkpoints are available in [HuggingFace](). 
+The instruction-tuned model checkpoints are available in [HuggingFace](https://huggingface.co/collections/NingLab/gellmo-67b527a2d221f06d09a240ef). 
 
 
 ## Training
