@@ -1,11 +1,11 @@
 # LLM4Opt:
 We introduce $\mathtt{MuMOInstruct}$, the first high-quality instruction-tuning dataset 
 specifically focused on complex multi-property molecule optimization tasks. 
-Leveraging $\mathtt{MuMOInstruct}$, we develop '$\mathtt{GeLLM^3O}$'s, a series of instruction-tuned LLMs for molecule optimization.
+Leveraging $\mathtt{MuMOInstruct}$, we develop $\mathtt{GeLLM^3O}$, a series of instruction-tuned LLMs for molecule optimization.
 Extensive evaluations across 5 in-domain and 5 out-of-domain
-tasks demonstrate that '$\mathtt{GeLLM^3O}$'s consistently outperform state-of-the-art baselines. 
-'$\mathtt{GeLLM^3O}$'s also exhibit outstanding zero-shot generalization to unseen tasks, significantly outperforming powerful closed-source LLMs.
-Such strong generalizability demonstrates the tremendous potential of '$\mathtt{GeLLM^3O}$'s as foundational models for molecule optimization,
+tasks demonstrate that $\mathtt{GeLLM^3O}$ consistently outperform state-of-the-art baselines. 
+$\mathtt{GeLLM^3O}$ also exhibits outstanding zero-shot generalization to unseen tasks, significantly outperforming powerful closed-source LLMs.
+Such strong generalizability demonstrates the tremendous potential of $\mathtt{GeLLM^3O}$ as foundational models for molecule optimization,
 thereby tackling novel optimization tasks without resource-intensive retraining. 
 
 ## Requirements
@@ -52,3 +52,26 @@ bash inference.sh $base_model $data_dir $lora_weights $output_dir $task $num_seq
 - `$num_seq` specifies the number of generated responses for each prompt (we set it to 20 in our experiments)
 - `$setting` specifies whether to use seen or unseen instruction
     - Permitted values: `seen` or `unseen` 
+
+
+## Evaluation
+
+For the sake of easy reproducibility, we also provide processing and evaluation codes in `process-output.ipynb` and `evaluate.ipynb`, respectively.
+Please note that to run `evaluate.ipynb`, you need to install a separate virtual environment
+that supports running the utility functions for computing drd2 scores following the [official implementation](https://github.com/wengong-jin/hgraph2graph/tree/master).
+We provide these utility functions in `data/props/` adapted from the official implementation.
+We used a separate virtual env with the following python and library versions:
+```
+python = 3.6.13
+pytorch = 1.6.0
+rdkit = 2020.03.3.0
+scikit-learn = 0.21.3
+```
+
+We provide a sample output in `examples/` which contains the following:
+- `bbbp+drd2+qed_response.json`: file with the JSON output after running `inference.py` using the instruction tuned $\mathtt{GeLLM^{3}O\text{-}P(6)_{Mistral}}$ LoRA checkpoint available in [Huggingface](https://huggingface.co/NingLab/GeLLMO-P6-Mistral) for the task BDQ.
+- `bbbp+drd2+qed-smiles.csv`: file containing comma separated list of SMILES strings that are successfully extracted from the JSON output. Use `process_output_llms()` provided in `process-output.ipynb` to generate this file.
+- `bbbp+drd2+qed-admet_props.csv`: file containing the properties for each SMILES string after running ADMET-AI. Use `generate_props()` provided in `process-output.ipynb` to generate this file.
+- `bbbp+drd2+qed-props.csv`: file containing the plogp, drd2, qed and sas scores along with ADMET-AI properties. Use `compute_props()` provided in `evaluate.ipynb` to generate this file.
+
+Once all these files are generated, please use `compute_metrics()` in `evaluate.ipynb` to compute all metrics. We provided example usages of these functions in the scripts.
