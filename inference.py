@@ -40,7 +40,7 @@ def main(
     response_split = "%%% Response:"
     prompter = Prompter(opt_type, response_split)
 
-    test_data = load_dataset("vdey/MuMOInstruct")['test']
+    test_data = load_dataset(data_path)['test']
     test_data = pd.DataFrame(test_data)
     test_data = test_data[(test_data['task'] == task) & (test_data['instr_setting'] == setting)]
     test_data = Dataset.from_pandas(test_data)

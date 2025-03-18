@@ -233,7 +233,7 @@ def train(
     
 
     if tasks:
-        data = load_dataset("vdey/MuMOInstruct")['train']
+        data = load_dataset(data_path)['train']
         data = pd.DataFrame(data)
 
         train_data = data[(data['split'] == 'train') & (data['task'].isin(tasks))]
