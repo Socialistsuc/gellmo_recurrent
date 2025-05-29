@@ -1,4 +1,4 @@
-# LLM4Opt:
+# GeLLMO: Generalizing Large Language Models for Multi-property Molecule Optimization
 We introduce $\mathtt{MuMOInstruct}$, the first high-quality instruction-tuning dataset 
 specifically focused on complex multi-property molecule optimization tasks. 
 Leveraging $\mathtt{MuMOInstruct}$, we develop $\mathtt{GeLLM^3O}$, a series of instruction-tuned LLMs for molecule optimization.
