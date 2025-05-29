@@ -47,12 +47,17 @@ bash inference.sh $base_model $data_dir $lora_weights $output_dir $task $num_seq
 ```
 - `$base_model` specifies the base model (either `mistralai/Mistral-7B-Instruct-v0.3` or `meta-llama/Llama-3.1-8B-Instruct`)
 - `$data_dir` specifies the path to json files or HuggingFace dataset hub `NingLab/MuMOInstruct`
-- `$lora_weights` specifies the path containing the adapter weights of the instruction-tuned model
+- `$lora_weights` specifies the local path or the HuggingFace model hub containing the adapter weights of the instruction-tuned model
 - `$output_dir` specifies the output path where the LLM generated responses will be stored in JSON format
+- `$task` specifies the task name
 - `$num_seq` specifies the number of generated responses for each prompt (we set it to 20 in our experiments)
 - `$setting` specifies whether to use seen or unseen instruction
     - Permitted values: `seen` or `unseen` 
 
+Example of inference on the task BDPQ on the tuned $\mathtt{GeLLMO\text{-}P(6)_\text{Mistral}}$ in the seen instruction setting:
+```
+bash inference.sh mistralai/Mistral-7B-Instruct-v0.3 NingLab/MuMOInstruct NingLab/GeLLMO-P6-Mistral /tmp/ bbbp+drd2+plogp+qed 20 seen
+```
 
 ## Evaluation
 

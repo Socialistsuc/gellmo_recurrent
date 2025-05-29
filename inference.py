@@ -76,10 +76,10 @@ def main(
 
     if use_lora:
         # backward compatibility for updated peft and wrong task name in save json
-        config_file = f"{lora_weights}/config.json"
-        lora_config = json.load(open(config_file))
-        lora_config["task_type"] = "CAUSAL_LM"
-        json.dump(lora_config, open(config_file, 'w'), indent=2)
+        #config_file = f"{lora_weights}/config.json"
+        #lora_config = json.load(open(config_file))
+        #lora_config["task_type"] = "CAUSAL_LM"
+        #json.dump(lora_config, open(config_file, 'w'), indent=2)
         model = PeftModel.from_pretrained(model,
                                           lora_weights, 
                                           torch_dtype=torch.bfloat16,
