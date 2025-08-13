@@ -1,0 +1,10 @@
+[{
+        "task": "bbbp+drd2+qed",
+        "instr_setting": "seen",
+        "source_smiles": "CC[C@@H]1NC(=O)[C@@H](NC(=O)CCc2nc3ccc(F)cc3[nH]2)CCCCNC(=O)[C@@H]2CCCN2C(=O)[C@@H](Cc2ccccc2)NC(=O)[C@H]([C@@H](C)O)NC1=O",
+        "properties": {
+            "qed": {"source": 0.1, "change": 1},
+            "bbbp": {"source": 0.6, "change": 1},
+            "drd2": {"source": 0.4, "change": 1}
+        }
+    }]
