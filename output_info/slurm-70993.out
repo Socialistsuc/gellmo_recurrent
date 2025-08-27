@@ -1,0 +1,42 @@
+Generating train split:   0%|          | 0/828097 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 828097/828097 [00:24<00:00, 34105.69 examples/s]Generating train split: 100%|██████████| 828097/828097 [00:25<00:00, 33042.61 examples/s]
+Generating test split:   0%|          | 0/44386 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 44386/44386 [00:00<00:00, 76269.66 examples/s]Generating test split: 100%|██████████| 44386/44386 [00:00<00:00, 73665.17 examples/s]
+Your goal is to fine-tune the specified molecular properties of the given compound with minimal structural changes. Make the necessary adjustments and return the modified molecule in a SMILES format enclosed in <SMILES> </SMILES> tags.
+%%% Input : <SMILES> CC(=O)OCC1=C(C(=O)O)N2C(=O)[C@@H](NC(=O)CCC[C@H](N)C(=O)O)[C@H]2SC1 </SMILES>
+%%% Adjust: increase BBB permeability, increase DRD2 inhibition, increase Penalized octanol-water partition coefficient (penalized logP) and increase QED
+
+Downloading shards:   0%|          | 0/3 [00:00<?, ?it/s]Downloading shards:  33%|███▎      | 1/3 [05:32<11:04, 332.12s/it]Downloading shards:  67%|██████▋   | 2/3 [13:14<06:48, 408.71s/it]Downloading shards: 100%|██████████| 3/3 [20:41<00:00, 426.30s/it]Downloading shards: 100%|██████████| 3/3 [20:41<00:00, 413.89s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.13it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.59s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.39s/it]
+The model 'OptimizedModule' is not supported for text-generation. Supported models are ['BartForCausalLM', 'BertLMHeadModel', 'BertGenerationDecoder', 'BigBirdForCausalLM', 'BigBirdPegasusForCausalLM', 'BioGptForCausalLM', 'BlenderbotForCausalLM', 'BlenderbotSmallForCausalLM', 'BloomForCausalLM', 'CamembertForCausalLM', 'LlamaForCausalLM', 'CodeGenForCausalLM', 'CohereForCausalLM', 'CpmAntForCausalLM', 'CTRLLMHeadModel', 'Data2VecTextForCausalLM', 'DbrxForCausalLM', 'ElectraForCausalLM', 'ErnieForCausalLM', 'FalconForCausalLM', 'FalconMambaForCausalLM', 'FuyuForCausalLM', 'GemmaForCausalLM', 'Gemma2ForCausalLM', 'GitForCausalLM', 'GlmForCausalLM', 'GPT2LMHeadModel', 'GPT2LMHeadModel', 'GPTBigCodeForCausalLM', 'GPTNeoForCausalLM', 'GPTNeoXForCausalLM', 'GPTNeoXJapaneseForCausalLM', 'GPTJForCausalLM', 'GraniteForCausalLM', 'GraniteMoeForCausalLM', 'JambaForCausalLM', 'JetMoeForCausalLM', 'LlamaForCausalLM', 'MambaForCausalLM', 'Mamba2ForCausalLM', 'MarianForCausalLM', 'MBartForCausalLM', 'MegaForCausalLM', 'MegatronBertForCausalLM', 'MistralForCausalLM', 'MixtralForCausalLM', 'MllamaForCausalLM', 'MoshiForCausalLM', 'MptForCausalLM', 'MusicgenForCausalLM', 'MusicgenMelodyForCausalLM', 'MvpForCausalLM', 'NemotronForCausalLM', 'OlmoForCausalLM', 'OlmoeForCausalLM', 'OpenLlamaForCausalLM', 'OpenAIGPTLMHeadModel', 'OPTForCausalLM', 'PegasusForCausalLM', 'PersimmonForCausalLM', 'PhiForCausalLM', 'Phi3ForCausalLM', 'PhimoeForCausalLM', 'PLBartForCausalLM', 'ProphetNetForCausalLM', 'QDQBertLMHeadModel', 'Qwen2ForCausalLM', 'Qwen2MoeForCausalLM', 'RecurrentGemmaForCausalLM', 'ReformerModelWithLMHead', 'RemBertForCausalLM', 'RobertaForCausalLM', 'RobertaPreLayerNormForCausalLM', 'RoCBertForCausalLM', 'RoFormerForCausalLM', 'RwkvForCausalLM', 'Speech2Text2ForCausalLM', 'StableLmForCausalLM', 'Starcoder2ForCausalLM', 'TransfoXLLMHeadModel', 'TrOCRForCausalLM', 'WhisperForCausalLM', 'XGLMForCausalLM', 'XLMWithLMHeadModel', 'XLMProphetNetForCausalLM', 'XLMRobertaForCausalLM', 'XLMRobertaXLForCausalLM', 'XLNetLMHeadModel', 'XmodForCausalLM', 'ZambaForCausalLM'].
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Finished processing batch 1. Time taken: 44.10 seconds
+Finished processing batch 2. Time taken: 49.63 seconds
+Finished processing batch 3. Time taken: 47.03 seconds
+Finished processing batch 4. Time taken: 46.04 seconds
+Finished processing batch 5. Time taken: 41.81 seconds
+Finished processing batch 6. Time taken: 39.40 seconds
+Finished processing batch 7. Time taken: 44.12 seconds
+Finished processing batch 8. Time taken: 48.16 seconds
+Finished processing batch 9. Time taken: 46.55 seconds
+Finished processing batch 10. Time taken: 48.06 seconds
+Finished processing batch 11. Time taken: 47.42 seconds
+Finished processing batch 12. Time taken: 46.91 seconds
+Finished processing batch 13. Time taken: 48.18 seconds
+Finished processing batch 14. Time taken: 45.03 seconds
+Finished processing batch 15. Time taken: 41.08 seconds
+Finished processing batch 16. Time taken: 47.79 seconds
+Finished processing batch 17. Time taken: 42.26 seconds
+Finished processing batch 18. Time taken: 45.64 seconds
+Finished processing batch 19. Time taken: 49.07 seconds
+Finished processing batch 20. Time taken: 44.57 seconds
+Finished processing batch 21. Time taken: 42.59 seconds
+Finished processing batch 22. Time taken: 46.03 seconds
+Finished processing batch 23. Time taken: 44.26 seconds
+Finished processing batch 24. Time taken: 46.58 seconds
+Finished processing batch 25. Time taken: 45.07 seconds
+Finished processing batch 26. Time taken: 48.02 seconds
+Finished processing batch 27. Time taken: 48.92 seconds
+Finished processing batch 28. Time taken: 47.06 seconds
+Finished processing batch 29. Time taken: 39.64 seconds
+Finished processing batch 30. Time taken: 43.37 seconds
+Finished processing batch 31. Time taken: 49.51 seconds
+Finished processing batch 32. Time taken: 13.09 seconds

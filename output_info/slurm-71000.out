@@ -1,0 +1,101 @@
+Using the latest cached version of the dataset since NingLab/MuMOInstruct couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'default' at /data/home/wgy/.cache/huggingface/datasets/NingLab___mu_mo_instruct/default/0.0.0/f3ca492caaca6ecb33b1fcff65d882f10acc3297 (last modified on Sun Aug 24 12:52:13 2025).
+Your goal is to fine-tune the specified molecular properties of the given compound with minimal structural changes. Make the necessary adjustments and return the modified molecule in a SMILES format enclosed in <SMILES> </SMILES> tags.
+%%% Input : <SMILES> CC(=O)OCC1=C(C(=O)O)N2C(=O)[C@@H](NC(=O)CCC[C@H](N)C(=O)O)[C@H]2SC1 </SMILES>
+%%% Adjust: increase BBB permeability, increase DRD2 inhibition, increase Penalized octanol-water partition coefficient (penalized logP) and increase QED
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.06it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:02<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:02<00:00,  1.12it/s]
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connection.py", line 770, in connect
+    self._tunnel()
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/http/client.py", line 939, in _tunnel
+    (version, code, message) = response._read_status()
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 775, in urlopen
+    self._raise_timeout(
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 171, in <module>
+    fire.Fire(main)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 83, in main
+    model = PeftModel.from_pretrained(model,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/peft/peft_model.py", line 581, in from_pretrained
+    load_result = model.load_adapter(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/peft/peft_model.py", line 1235, in load_adapter
+    adapters_weights = load_peft_weights(model_id, device=torch_device, **hf_hub_download_kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/peft/utils/save_and_load.py", line 542, in load_peft_weights
+    has_remote_safetensors_file = file_exists(
+                                  ^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 2907, in file_exists
+    get_hf_file_metadata(url, token=token)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 277, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 300, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 93, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 23746c98-7298-469c-b5a2-9509b7836d34)')
+srun: error: localhost: task 0: Exited with exit code 1

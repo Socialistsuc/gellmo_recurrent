@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 170, in <module>
+    fire.Fire(main)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 43, in main
+    test_data = load_dataset(data_path)['test']
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/datasets/load.py", line 2114, in load_dataset
+    if Path(path, config.DATASET_STATE_JSON_FILENAME).exists():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not bool

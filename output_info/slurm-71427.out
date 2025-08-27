@@ -1,0 +1,111 @@
+Using the latest cached version of the dataset since NingLab/MuMOInstruct couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'default' at /data/home/wgy/.cache/huggingface/datasets/NingLab___mu_mo_instruct/default/0.0.0/f3ca492caaca6ecb33b1fcff65d882f10acc3297 (last modified on Sun Aug 24 12:52:13 2025).
+Your goal is to fine-tune the specified molecular properties of the given compound with minimal structural changes. Make the necessary adjustments and return the modified molecule in a SMILES format enclosed in <SMILES> </SMILES> tags.
+%%% Input : <SMILES> CC(=O)OCC1=C(C(=O)O)N2C(=O)[C@@H](NC(=O)CCC[C@H](N)C(=O)O)[C@H]2SC1 </SMILES>
+%%% Adjust: increase BBB permeability, increase DRD2 inhibition, increase Penalized octanol-water partition coefficient (penalized logP) and increase QED
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fcc15404710>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fcc15404710>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /mistralai/Mistral-7B-Instruct-v0.3/resolve/main/tokenizer_config.json (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fcc15404710>: Failed to establish a new connection: [Errno 111] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 171, in <module>
+    fire.Fire(main)
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/bin/gellmo/GeLLMO/inference.py", line 67, in main
+    tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 857, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 689, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 925, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, head_call_error) = _get_metadata_or_catch_error(
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 277, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 300, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 93, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/wgy/workspace/local/anaconda3/envs/gellmo/lib/python3.11/site-packages/requests/adapters.py", line 694, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /mistralai/Mistral-7B-Instruct-v0.3/resolve/main/tokenizer_config.json (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fcc15404710>: Failed to establish a new connection: [Errno 111] Connection refused')))"), '(Request ID: 62b902f5-2e9b-4983-ad6b-f4cb1d8b8b8e)')
+srun: error: localhost: task 0: Exited with exit code 1

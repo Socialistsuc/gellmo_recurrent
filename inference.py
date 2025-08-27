@@ -127,6 +127,7 @@ def main(
         print(f"Finished processing batch {i // max_batch_size + 1}. Time taken: {time.time() - start_time:.2f} seconds")
 
     os.makedirs(output_dir, exist_ok=True)
+    print(f"Saving results to {output_dir}/{task}_response.json")
     with open(f"{output_dir}/{task}_response.json", 'w') as f:
         json.dump(results, f)
 
